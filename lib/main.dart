@@ -25,11 +25,14 @@ class MyApp extends StatelessWidget {
                     style: TextStyle(color: Colors.white, fontSize: 28),
                   ),
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 80),
-                  child: Text(
-                    'Start Quiz',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
+                Padding(
+                  padding: EdgeInsets.only(top: 40),
+                  child: OutlinedButton(
+                    onPressed: () {},
+                    style: OutlinedButton.styleFrom(
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text('Start Quiz'),
                   ),
                 ),
               ],
