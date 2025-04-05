@@ -27,12 +27,13 @@ class MyApp extends StatelessWidget {
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: 40),
-                  child: OutlinedButton(
+                  child: OutlinedButton.icon(
                     onPressed: () {},
                     style: OutlinedButton.styleFrom(
                       foregroundColor: Colors.white,
                     ),
-                    child: Text('Start Quiz'),
+                    icon: Icon(Icons.arrow_right_alt),
+                    label: Text('Start Quiz'),
                   ),
                 ),
               ],
