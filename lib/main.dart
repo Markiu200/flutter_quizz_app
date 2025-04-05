@@ -17,7 +17,10 @@ class MyApp extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                Image.asset('assets/images/quiz-logo.png', width: 300),
+                Opacity(
+                  opacity: 0.6,
+                  child: Image.asset('assets/images/quiz-logo.png', width: 300),
+                ),
                 const Padding(
                   padding: EdgeInsets.only(top: 60),
                   child: Text(
