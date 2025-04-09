@@ -16,23 +16,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Widget? screen;
-
-  @override
-  void initState() {
-    super.initState(); //always paired with function, put on top
-    // couldn't do it outside initState - method is being created still
-    screen = Quiz(switchScreen);
-  }
+  String screen = "quiz-screen";
 
   void switchScreen() {
     setState(() {
-      screen = QuestionsScreen();
+      screen = "questions-screen";
     });
   }
 
   @override
   Widget build(BuildContext build) {
-    return screen!;
+    return screen == "quiz-screen" ? Quiz(switchScreen) : QuestionsScreen();
   }
 }
