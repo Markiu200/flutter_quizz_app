@@ -11,7 +11,9 @@ import 'package:quiz_app/gradient_container.dart';
 // }
 
 class Quiz extends StatelessWidget {
-  const Quiz({super.key});
+  const Quiz(this.switchScreen, {super.key});
+
+  final void Function() switchScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +39,9 @@ class Quiz extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: 40),
                   child: OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      switchScreen();
+                    },
                     style: OutlinedButton.styleFrom(
                       foregroundColor: Colors.white,
                     ),
