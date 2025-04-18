@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/gradient_container.dart';
 import 'package:quiz_app/answer_button.dart';
+import 'package:quiz_app/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -14,6 +15,8 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(BuildContext context) {
+    final currentQuestion = questions[0];
+
     return MaterialApp(
       home: Scaffold(
         body: GradientContainer(
@@ -22,10 +25,14 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Question", style: TextStyle(color: Colors.white)),
-                AnswerButton("Answer 1", () {}),
-                AnswerButton("Answer 2", () {}),
-                AnswerButton("Answer 3", () {}),
+                Text(
+                  currentQuestion.question,
+                  style: TextStyle(color: Colors.white),
+                ),
+                AnswerButton(currentQuestion.answers[0], () {}),
+                AnswerButton(currentQuestion.answers[1], () {}),
+                AnswerButton(currentQuestion.answers[2], () {}),
+                AnswerButton(currentQuestion.answers[3], () {}),
               ],
             ),
           ),
