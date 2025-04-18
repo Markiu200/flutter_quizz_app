@@ -31,6 +31,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   Text(
                     currentQuestion.question,
                     style: TextStyle(color: Colors.white),
+                    textAlign: TextAlign.center,
                   ),
                   SizedBox(height: 40),
                   // map runs a function for each list element returns Iterable of
