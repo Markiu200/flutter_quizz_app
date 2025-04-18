@@ -29,10 +29,12 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   currentQuestion.question,
                   style: TextStyle(color: Colors.white),
                 ),
-                AnswerButton(currentQuestion.answers[0], () {}),
-                AnswerButton(currentQuestion.answers[1], () {}),
-                AnswerButton(currentQuestion.answers[2], () {}),
-                AnswerButton(currentQuestion.answers[3], () {}),
+                // map runs a function for each list element returns Iterable of
+                // the results it got. Then spread operator (...) makes that
+                // into separate Widgets instead of list (Iterable) of Widgets.
+                ...currentQuestion.answers.map((answer) {
+                  return AnswerButton(answer, () {});
+                }),
               ],
             ),
           ),
