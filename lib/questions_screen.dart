@@ -16,7 +16,18 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
     return MaterialApp(
       home: Scaffold(
         body: GradientContainer(
-          containerChild: Center(child: const Text("Hello questions")),
+          containerChild: SizedBox(
+            width: double.infinity,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("Question"),
+                ElevatedButton(onPressed: () {}, child: const Text("Answer 1")),
+                ElevatedButton(onPressed: () {}, child: const Text("Answer 2")),
+                ElevatedButton(onPressed: () {}, child: const Text("Answer 3")),
+              ],
+            ),
+          ),
         ),
       ),
     );
