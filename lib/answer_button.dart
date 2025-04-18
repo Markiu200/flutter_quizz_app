@@ -11,6 +11,8 @@ class AnswerButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onTap,
       style: ElevatedButton.styleFrom(
+        // "symmetric" allows to set vertical and horizontal padding separately
+        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 40),
         backgroundColor: Colors.purple,
         foregroundColor: Colors.white,
       ),
