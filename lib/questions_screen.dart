@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/gradient_container.dart';
+import 'package:quiz_app/answer_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -21,10 +22,10 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Text("Question"),
-                ElevatedButton(onPressed: () {}, child: const Text("Answer 1")),
-                ElevatedButton(onPressed: () {}, child: const Text("Answer 2")),
-                ElevatedButton(onPressed: () {}, child: const Text("Answer 3")),
+                const Text("Question", style: TextStyle(color: Colors.white)),
+                AnswerButton("Answer 1", () {}),
+                AnswerButton("Answer 2", () {}),
+                AnswerButton("Answer 3", () {}),
               ],
             ),
           ),
