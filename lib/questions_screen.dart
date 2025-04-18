@@ -37,7 +37,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   // map runs a function for each list element returns Iterable of
                   // the results it got. Then spread operator (...) makes that
                   // into separate Widgets instead of list (Iterable) of Widgets.
-                  ...currentQuestion.answers.map((answer) {
+                  ...currentQuestion.getShuffledAnswers().map((answer) {
                     return AnswerButton(answer, () {});
                   }),
                 ],
