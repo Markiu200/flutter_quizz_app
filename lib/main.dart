@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/questions.dart';
 import 'package:quiz_app/quiz.dart';
 import 'package:quiz_app/questions_screen.dart';
+import 'package:quiz_app/results_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -28,21 +29,24 @@ class _MyAppState extends State<MyApp> {
 
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
-    print(selectedAnswers);
     if (selectedAnswers.length == questions.length) {
       while (selectedAnswers.isNotEmpty) {
         selectedAnswers.removeLast();
       }
       setState(() {
-        screen = "quiz-screen";
+        screen = "results-screen";
       });
     }
   }
 
   @override
   Widget build(BuildContext build) {
-    return screen == "quiz-screen"
-        ? Quiz(switchScreen)
-        : QuestionsScreen(chooseAnswer);
+    if (screen == "quiz-screen") {
+      return Quiz(switchScreen);
+    } else if (screen == "questions-screen") {
+      return QuestionsScreen(chooseAnswer);
+    } else {
+      return ResultsScreen();
+    }
   }
 }
