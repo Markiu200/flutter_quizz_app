@@ -13,9 +13,21 @@ class QuestionsScreen extends StatefulWidget {
 }
 
 class _QuestionsScreenState extends State<QuestionsScreen> {
+  int currentQuestionIndex = 0;
+
+  void answerQuestion() {
+    currentQuestionIndex++;
+  }
+
+  void switchQuestion() {
+    setState(() {
+      answerQuestion();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    final currentQuestion = questions[0];
+    final currentQuestion = questions[currentQuestionIndex];
 
     return MaterialApp(
       home: Scaffold(
@@ -38,7 +50,7 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   // the results it got. Then spread operator (...) makes that
                   // into separate Widgets instead of list (Iterable) of Widgets.
                   ...currentQuestion.getShuffledAnswers().map((answer) {
-                    return AnswerButton(answer, () {});
+                    return AnswerButton(answer, switchQuestion);
                   }),
                 ],
               ),
