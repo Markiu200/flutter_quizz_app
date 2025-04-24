@@ -5,7 +5,9 @@ import 'package:quiz_app/questions.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  const QuestionsScreen(this.onSelectAnswer, {super.key});
+
+  final void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -16,13 +18,16 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   int currentQuestionIndex = 0;
 
-  void answerQuestion() {
+  void answerQuestion(answer) {
     currentQuestionIndex++;
+    // widget property comes from State<> and allows to access properties
+    // defined in StatefulWidget part.
+    widget.onSelectAnswer(answer);
   }
 
-  void switchQuestion() {
+  void switchQuestion(answer) {
     setState(() {
-      answerQuestion();
+      answerQuestion(answer);
     });
   }
 
@@ -55,7 +60,9 @@ class _QuestionsScreenState extends State<QuestionsScreen> {
                   // the results it got. Then spread operator (...) makes that
                   // into separate Widgets instead of list (Iterable) of Widgets.
                   ...currentQuestion.getShuffledAnswers().map((answer) {
-                    return AnswerButton(answer, switchQuestion);
+                    return AnswerButton(answer, () {
+                      switchQuestion(answer);
+                    });
                   }),
                 ],
               ),

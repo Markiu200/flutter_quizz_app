@@ -16,6 +16,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final List<String> selectedAnswers = [];
   String screen = "quiz-screen";
 
   void switchScreen() {
@@ -24,8 +25,15 @@ class _MyAppState extends State<MyApp> {
     });
   }
 
+  void chooseAnswer(String answer) {
+    selectedAnswers.add(answer);
+    print(selectedAnswers);
+  }
+
   @override
   Widget build(BuildContext build) {
-    return screen == "quiz-screen" ? Quiz(switchScreen) : QuestionsScreen();
+    return screen == "quiz-screen"
+        ? Quiz(switchScreen)
+        : QuestionsScreen(chooseAnswer);
   }
 }
