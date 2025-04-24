@@ -8,21 +8,18 @@ class ResultsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Container(
-          margin: EdgeInsets.all(40),
+        body: SizedBox(
+          width: double.infinity,
           child: GradientContainer(
-            containerChild: SizedBox(
-              width: double.infinity,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text("You answered X out of Y questions correctly!"),
-                  const SizedBox(height: 30),
-                  const Text("List of answers and questions"),
-                  const SizedBox(height: 30),
-                  TextButton(onPressed: () {}, child: Text("Restart Quiz!")),
-                ],
-              ),
+            containerChild: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text("You answered X out of Y questions correctly!"),
+                const SizedBox(height: 30),
+                const Text("List of answers and questions"),
+                const SizedBox(height: 30),
+                TextButton(onPressed: () {}, child: Text("Restart Quiz!")),
+              ],
             ),
           ),
         ),
