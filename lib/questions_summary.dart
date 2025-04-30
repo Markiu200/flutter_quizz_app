@@ -16,23 +16,54 @@ class QuestionsSummary extends StatelessWidget {
           child: Column(
             children:
                 summaryData.map((data) {
-                  return Row(
-                    children: [
-                      QuestionIndex(
-                        (data["question_index"] as int) + 1,
-                        data["isCorrect"] as bool,
-                      ),
-                      Expanded(
-                        child: Column(
-                          children: [
-                            Text(data["question"] as String),
-                            const SizedBox(height: 5),
-                            Text(data["selectedAnswer"] as String),
-                            Text(data["correctAnswer"] as String),
-                          ],
+                  return Container(
+                    margin: EdgeInsets.only(bottom: 25),
+                    child: Row(
+                      children: [
+                        QuestionIndex(
+                          (data["question_index"] as int) + 1,
+                          data["isCorrect"] as bool,
                         ),
-                      ),
-                    ],
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                data["question"] as String,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                data["selectedAnswer"] as String,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    245,
+                                    187,
+                                    255,
+                                  ),
+                                ),
+                              ),
+                              Text(
+                                data["correctAnswer"] as String,
+                                style: TextStyle(
+                                  color: const Color.fromARGB(
+                                    255,
+                                    14,
+                                    255,
+                                    195,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 }).toList(),
           ),
