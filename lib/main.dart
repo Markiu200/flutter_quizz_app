@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
     } else if (screen == "questions-screen") {
       return QuestionsScreen(chooseAnswer);
     } else {
-      return ResultsScreen();
+      return ResultsScreen(selectedAnswers);
     }
   }
 }

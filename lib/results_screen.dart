@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/gradient_container.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key});
+  const ResultsScreen(this.selectedAnswers, {super.key});
+
+  final List<String> selectedAnswers;
 
   @override
   Widget build(BuildContext context) {
