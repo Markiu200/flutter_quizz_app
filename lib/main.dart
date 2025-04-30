@@ -30,9 +30,9 @@ class _MyAppState extends State<MyApp> {
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
-      while (selectedAnswers.isNotEmpty) {
-        selectedAnswers.removeLast();
-      }
+      // while (selectedAnswers.isNotEmpty) {
+      //   selectedAnswers.removeLast();
+      // }
       setState(() {
         screen = "results-screen";
       });
