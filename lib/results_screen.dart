@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/gradient_container.dart';
 import 'package:quiz_app/questions.dart';
 import 'package:quiz_app/questions_summary.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
   const ResultsScreen(this.selectedAnswers, {super.key});
@@ -43,6 +44,12 @@ class ResultsScreen extends StatelessWidget {
               children: [
                 Text(
                   "You answered $correctQuestions out of $allQuestions questions correctly!",
+                  style: GoogleFonts.lato(
+                    color: const Color.fromARGB(255, 252, 225, 255),
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 30),
                 QuestionsSummary(summaryData),
