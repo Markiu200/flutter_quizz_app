@@ -10,9 +10,19 @@ class QuestionIndex extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 100,
-      height: 100,
-      decoration: BoxDecoration(shape: BoxShape.circle),
+      width: 50,
+      height: 50,
+      margin: EdgeInsets.all(10),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: isCorrect ? Colors.green : Colors.deepOrange,
+      ),
+      child: Center(
+        child: Text(
+          index.toString(),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+      ),
     );
   }
 }
