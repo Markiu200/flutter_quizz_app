@@ -30,13 +30,19 @@ class _MyAppState extends State<MyApp> {
   void chooseAnswer(String answer) {
     selectedAnswers.add(answer);
     if (selectedAnswers.length == questions.length) {
-      // while (selectedAnswers.isNotEmpty) {
-      //   selectedAnswers.removeLast();
-      // }
       setState(() {
         screen = "results-screen";
       });
     }
+  }
+
+  void restart() {
+    while (selectedAnswers.isNotEmpty) {
+      selectedAnswers.removeLast();
+    }
+    setState(() {
+      screen = "quiz-screen";
+    });
   }
 
   @override
@@ -46,7 +52,7 @@ class _MyAppState extends State<MyApp> {
     } else if (screen == "questions-screen") {
       return QuestionsScreen(chooseAnswer);
     } else {
-      return ResultsScreen(selectedAnswers);
+      return ResultsScreen(selectedAnswers, onRestart: restart);
     }
   }
 }

@@ -5,9 +5,14 @@ import 'package:quiz_app/questions_summary.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen(this.selectedAnswers, {super.key});
+  const ResultsScreen(
+    this.selectedAnswers, {
+    super.key,
+    required this.onRestart,
+  });
 
   final List<String> selectedAnswers;
+  final void Function() onRestart;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -54,7 +59,7 @@ class ResultsScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 QuestionsSummary(summaryData),
                 const SizedBox(height: 30),
-                TextButton(onPressed: () {}, child: Text("Restart Quiz!")),
+                TextButton(onPressed: onRestart, child: Text("Restart Quiz!")),
               ],
             ),
           ),
