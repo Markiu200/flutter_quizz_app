@@ -17,6 +17,7 @@ class ResultsScreen extends StatelessWidget {
         "question": questions[i].question,
         "correctAnswer": questions[i].answers[0],
         "selectedAnswer": selectedAnswers[i],
+        "isCorrect": questions[i].answers[0] == selectedAnswers[i],
       });
     }
 
@@ -29,7 +30,7 @@ class ResultsScreen extends StatelessWidget {
     final summaryData = getSummaryData();
     final int correctQuestions =
         summaryData.where((data) {
-          return data["correctAnswer"] == data["selectedAnswer"];
+          return data["isCorrect"] == true;
         }).length;
 
     return MaterialApp(
