@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/question_index.dart';
 
 class QuestionsSummary extends StatelessWidget {
   const QuestionsSummary(this.summaryData, {super.key});
@@ -17,7 +18,10 @@ class QuestionsSummary extends StatelessWidget {
                 summaryData.map((data) {
                   return Row(
                     children: [
-                      Text(((data["question_index"] as int) + 1).toString()),
+                      QuestionIndex(
+                        (data["question_index"] as int) + 1,
+                        data["isCorrect"] as bool,
+                      ),
                       Expanded(
                         child: Column(
                           children: [
